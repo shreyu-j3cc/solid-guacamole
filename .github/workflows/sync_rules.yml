@@ -1,0 +1,19 @@
+name: Sync Rules to DecisionRules
+on:
+  push:
+    paths:
+      - 'rules/**' # Only runs when files in the rules folder change
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Push Rule to DecisionRules
+        run: |
+          curl --request PUT 'https://api.decisionrules.io/api/rule/management/import' \
+          --header 'Authorization: Bearer ${{ secrets.DR_MANAGEMENT_KEY }}' \
+          --header 'Content-Type: application/json' \
+          --data @rules/discount_rule.json
