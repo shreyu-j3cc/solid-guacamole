@@ -1,0 +1,28 @@
+{
+  "ruleId": "YOUR_RULE_ID_HERE",
+  "version": "1",
+  "status": "pending",
+  "data": {
+    "type": "decision-table",
+    "name": "GitHub_Sync_Demo",
+    "content": [
+      {
+        "product": "Laptop",
+        "customer_type": "Student",
+        "discount": 20
+      },
+      {
+        "product": "Phone",
+        "customer_type": "Standard",
+        "discount": 5
+      }
+    ],
+    "inputParameters": [
+      { "name": "product", "type": "string" },
+      { "name": "customer_type", "type": "string" }
+    ],
+    "outputParameters": [
+      { "name": "discount", "type": "number" }
+    ]
+  }
+}
